@@ -45,12 +45,30 @@ The addresses in the diagram and documentation are sanitized examples, not the o
 ├── README.md
 ├── .gitignore
 ├── docs/
-│   └── proxmox-learning-notes.md
+│   ├── proxmox-learning-notes.md    <- environment, networking, storage, firewall, backup
+│   ├── lxc-containers.md            <- LXC concept reference (12 topics)
+│   ├── advanced-topics.md           <- nesting, namespaces, AppArmor, migration, API, Ansible
+│   └── roadmap.md                   <- wider Proxmox VE study plan
+├── labs/
+│   ├── README.md                    <- lab index, conventions, evidence standard
+│   ├── _lab-template.md             <- skeleton for a new lab
+│   └── lxc/
+│       ├── 01-understanding-lxc.md
+│       ├── 02-downloading-templates.md
+│       ├── 03-creating-first-container.md
+│       ├── 04-privileged-vs-unprivileged.md
+│       ├── 05-container-networking.md
+│       ├── 06-container-storage.md
+│       ├── 07-resource-management.md
+│       ├── 08-container-backup-restore.md
+│       ├── 09-container-security.md
+│       └── 10-troubleshooting.md
 ├── commands/
 │   └── cli-cheatsheet.md
 ├── diagrams/
 │   └── README.md
 └── evidence/
+    ├── lxc/                         <- per-lab evidence (configs, output, screenshots)
     ├── screenshots/
     │   └── README.md
     └── configurations/
@@ -81,9 +99,29 @@ The addresses in the diagram and documentation are sanitized examples, not the o
 - Implement and validate firewall rules.
 - Perform a backup/restore exercise.
 - Build and test a Cloud-Init template.
-- Learn LXC containers, users, roles and ACLs.
+- Work through the ten LXC labs in [`labs/lxc/`](labs/lxc/).
+- Learn users, roles and ACLs (`pveum`).
 
 See [`docs/proxmox-learning-notes.md`](docs/proxmox-learning-notes.md) for detailed notes and commands.
+
+## Learning path
+
+Everything here follows **Concept → Practical implementation → Evidence and
+troubleshooting**, so each topic ends with proof rather than a summary.
+
+| Stage | Read | Do | Record |
+|---|---|---|---|
+| Understand LXC | [`docs/lxc-containers.md`](docs/lxc-containers.md) | [`labs/lxc/01`–`02`](labs/lxc/) | [`evidence/lxc/`](evidence/lxc/) |
+| Build containers | same | [`labs/lxc/03`–`04`](labs/lxc/) | same |
+| Network and storage | same | [`labs/lxc/05`–`06`](labs/lxc/) | same |
+| Resources and backup | same | [`labs/lxc/07`–`08`](labs/lxc/) | same |
+| Security and troubleshooting | same | [`labs/lxc/09`–`10`](labs/lxc/) | same |
+| Go further | [`docs/advanced-topics.md`](docs/advanced-topics.md) | — | — |
+| Wider roadmap | [`docs/roadmap.md`](docs/roadmap.md) | — | — |
+
+Lab status lives in the [lab index](labs/README.md). A lab is marked done only
+after the steps were executed **and** evidence was captured — the documentation
+being written is not the same as the work being done.
 
 ## Important lab constraints
 
